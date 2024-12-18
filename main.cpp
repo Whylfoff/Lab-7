@@ -1,4 +1,4 @@
-//1.hpp
+//matrix.hpp
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 
@@ -9,7 +9,7 @@ namespace MatrixOperations {
 }
 
 #endif // MATRIX_HPP
-//2.cpp
+//additional.cpp
 #include "matrix.hpp"
 #include <iostream>
 
@@ -62,30 +62,30 @@ namespace MatrixOperations {
         }
     }
 }
-//3.cpp
+//main.cpp
 #include <iostream>
 #include "matrix.hpp"
 
 using namespace std;
 
 int main() {
-    int n;
-    cout << "Введите размер матрицы (n): ";
-    cin >> n;
-    int** matrix = new int*[n];
-    for (int i = 0; i < n; ++i) {
-        matrix[i] = new int[n];
+    int m;
+    cout << "Введите размер матрицы: ";
+    cin >> m;
+    int** matrix = new int*[m];
+    for (int i = 0; i < m; ++i) {
+        matrix[i] = new int[m];
     }
 
     cout << "Введите элементы матрицы:\n";
-    MatrixOperations::readMatrix(matrix, n);
+    MatrixOperations::readMatrix(matrix, m);
 
-    MatrixOperations::processMatrix(matrix, n);
+    MatrixOperations::processMatrix(matrix, m);
 
     cout << "Обработанная матрица:\n";
-    MatrixOperations::writeMatrix(matrix, n);
+    MatrixOperations::writeMatrix(matrix, m);
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < m; ++i) {
         delete[] matrix[i];
     }
     delete[] matrix;
